@@ -127,7 +127,7 @@ module.exports = function(grunt) {
                             map: true
                         }),
                         new (require('less-plugin-clean-css'))()
-                    ],
+                    ]
                 },
                 src: 'src/style/demo.less',
                 dest: 'demo/app.min.css'
