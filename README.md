@@ -95,6 +95,8 @@ Make sure you have installed the [Grunt CLI](http://gruntjs.com/getting-started#
 | `data-twitter-via` | Screen name of the user to attribute the Tweet to | `null` |
 | `data-url`         | The canonical URL of the page to check. | page's canonical URL or `og:url` or current URL |
 
+`data-theme` custom = customize html container yourself (see demo/custom-links.html).
+
 ## Backends
 
 In order to display share counts with Shariff, you need one of the following backends:
