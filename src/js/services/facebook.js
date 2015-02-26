@@ -1,7 +1,8 @@
 'use strict';
 
-module.exports = function(shariff) {
+module.exports = function (shariff) {
     var url = encodeURIComponent(shariff.getURL());
+    var plattformUrl = 'https://www.facebook.com/sharer/sharer.php?u=';
     return {
         popup: true,
         shareText: {
@@ -16,6 +17,11 @@ module.exports = function(shariff) {
             'en': 'Share on Facebook',
             'es': 'Compartir en Facebook'
         },
-        shareUrl: 'https://www.facebook.com/sharer/sharer.php?u=' + url + shariff.getReferrerTrack()
+        shareUrl: plattformUrl + url + shariff.getReferrerTrack(),
+        setShareUrl: function (_url) {
+            if (_url) {
+                this.shareUrl = plattformUrl + _url + shariff.getReferrerTrack();
+            }
+        }
     };
 };

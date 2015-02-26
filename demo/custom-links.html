@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Custom Shariff Buttons</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app.min.css">
+    <link href="http://www.heise.de/" rel="canonical">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<div data-services='["facebook","twitter","googleplus"]'
+     data-theme="standard"
+     data-lang="de"
+     data-share-text="Hello World"
+     class="shariff"
+     data-url="http://www.heise.de/ct/">
+</div>
+
+<div class="deputy-shariff" data-theme="custom" data-url="http://www.heise.de" data-share-text="my custom text for twitter">
+    <a class="btn btn-share-facebook" href="#" data-share-service="facebook">
+        <i class="fa fa-facebook"></i>
+        FACEBOOK SHARE
+    </a>
+    <a class="btn btn-primary" href="#" data-share-service="twitter">
+        <i class="fa fa-twitter"></i>
+        TWITTER SHARE
+    </a>
+    <a class="btn btn-primary" href="#" data-share-service="googleplus">
+        <i class="fa fa-google-plus"></i>
+        GOOGLE+ SHARE
+    </a>
+</div>
+
+<script src="build/shariff.complete.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            // initialize custom elements yourself
+            $('.deputy-shariff').each(function () {
+                if (!this.hasOwnProperty('shariff')) {
+                    this.shariff = new Shariff(this);
+                }
+            });
+
+            //customizing on the fly
+            (function($) {
+                var _share = $('.deputy-shariff').get(0).shariff;
+                if (_share) {
+                    _share.setURL('http://www.heise.de/ix/').setShareText('Text changes are welcome');
+                }
+            }(jQuery));
+        })
+    }(jQuery))
+</script>
+</body>
+</html>

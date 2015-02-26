@@ -1,7 +1,8 @@
 'use strict';
 
-module.exports = function(shariff) {
+module.exports = function (shariff) {
     var url = encodeURIComponent(shariff.getURL());
+    var plattformUrl = 'https://plus.google.com/share?url=';
     return {
         popup: true,
         shareText: '+1',
@@ -12,7 +13,12 @@ module.exports = function(shariff) {
             'en': 'Share on Google+',
             'es': 'Compartir en Google+'
         },
-        shareUrl: 'https://plus.google.com/share?url=' + url + shariff.getReferrerTrack()
+        shareUrl: plattformUrl + url + shariff.getReferrerTrack(),
+        setShareUrl: function (_url) {
+            if (_url) {
+                this.shareUrl = plattformUrl + _url + shariff.getReferrerTrack();
+            }
+        }
     };
 };
 
